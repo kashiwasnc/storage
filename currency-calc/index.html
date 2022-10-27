@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width = device-width" />
+    <title>Currency Calculator</title>
+    <link rel="stylesheet" href="./assets/style.css" />
+  </head>
+
+  <body>
+    <header>
+      <h1>Currency Calculator</h1>
+    </header>
+    <main>
+      <img
+        src="./assets/ryougae_dollar_yen.png"
+        alt="両替のイラスト"
+        width="200px"
+      />
+      <p>両替したい通貨と金額を指定してください</p>
+
+      <div class="currency">
+        <select id="currency1">
+          <option value="AUD">豪ドル</option>
+          <option value="CAD">カナダドル</option>
+          <option value="CHF">スイスフラン</option>
+          <option value="CNY">人民元</option>
+          <option value="EUR">ユーロ</option>
+          <option value="GBP">英ポンド</option>
+          <option value="HKD">香港ドル</option>
+          <option value="JPY">日本円</option>
+          <option value="KRW">韓国ウォン</option>
+          <option value="USD" selected>米ドル</option>
+        </select>
+        <input type="number" id="amount1" placeholder="0" value="1" />
+      </div>
+
+      <div class="swap-rate">
+        <button class="btn" id="swap">通貨を入替え</button>
+        <div class="rate" id="rate"></div>
+      </div>
+
+      <div class="currency">
+        <select id="currency2">
+          <option value="AUD">豪ドル</option>
+          <option value="CAD">カナダドル</option>
+          <option value="CHF">スイスフラン</option>
+          <option value="CNY">人民元</option>
+          <option value="EUR">ユーロ</option>
+          <option value="GBP">英ポンド</option>
+          <option value="HKD">香港ドル</option>
+          <option value="JPY" selected>日本円</option>
+          <option value="KRW">韓国ウォン</option>
+          <option value="USD">米ドル</option>
+        </select>
+        <input type="number" id="amount2" placeholder="0" />
+      </div>
+    </main>
+    <footer>
+      <a href="https://www.exchangerate-api.com">Rates By Exchange Rate API</a>
+    </footer>
+    <script src="./assets/script.js"></script>
+  </body>
+</html>

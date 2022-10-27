@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="utf-8" />
+    <title>weather info</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Chart.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="./assets/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <main class="main">
+        <!-- 前半 -->
+        <div class="setPoint">
+            <!-- 説明 -->
+            <div class="setPoint-inner">
+                <p>
+                    <a href="https://open-meteo.com/">Open-Meteo.com</a>のWeather APIを利用して<br>
+                    指定した地点の一週間分の天気予報を表示します<br>
+                    <br>
+                    予報を見たい地点の緯度・経度を指定して下さい<br>
+                    <small class="p-small">
+                        ※注：タイムゾーンはGMT+9（日本標準時）になります
+                    </small>
+                </p>
+            </div>
+            <!-- 地点を取得 -->
+            <div class="setPoint-inner">
+                <div class="point-item">
+                    <p>地点リスト</p>
+                    <select aria-label="地点" id="city-select">
+                        <option value="" selected>- 選択 -</option>
+                        <option value="14163">札幌</option>
+                        <option value="34392">仙台</option>
+                        <option value="44132">東京</option>
+                        <option value="62078">大阪</option>
+                        <option value="82182">福岡</option>
+                    </select>
+                </div>
+                <div class="point-item">
+                    <p>または</p>
+                </div>
+                <div class="point-item">
+                    <button id="get-geo" class="btn">位置情報を取得</button>
+                    <p id="status" class="alert-msg"></p>
+                </div>
+            </div>
+            <!-- 緯度経度フォーム -->
+            <div class="setPoint-inner">
+                <div class="geo-frame">
+                    <div class="geo-item">
+                        <label for="latitude">緯度</label>
+                        <input id="latitude" type="number" name="latitude" min="-180" max="180" step="0.001" value=""
+                            inputmode="numeric">
+                        <p id="check-lat" class="alert-msg"></p>
+                    </div>
+                    <div class="geo-item">
+                        <label for="longitude">経度</label>
+                        <input id="longitude" type="number" name="longitude" min="-180" max="180" step="0.001" value=""
+                            inputmode="numeric">
+                        <p id="check-lon" class="alert-msg"></p>
+                    </div>
+                </div>
+            </div>
+            <!-- 天気予報を取得するボタン -->
+            <div class="setPoint-inner">
+                <div class="btns-item">
+                    <button id="show-info" class="btn btn-disabled" disabled>天気予報を見る</button>
+                </div>
+            </div>
+        </div>
+        <script src="./assets/location.js"></script>
+        <!-- 後半 -->
+        <div class="result">
+            <!-- 現在の情報を表示 -->
+            <div id="current"></div>
+            <!-- グラフ描画エリア -->
+            <div class="chart-wrapper">
+                <div class="chart-container">
+                    <canvas id="chart"></canvas>
+                </div>
+            </div>
+            <!-- 「Open-Meteo」の帰属表示 -->
+            <small><a href="https://open-meteo.com/">Weather data by Open-Meteo.com</a></small>
+        </div>
+        <script src="./assets/weather.js"></script>
+    </main>
+</body>
+
+</html>

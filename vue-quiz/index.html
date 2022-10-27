@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vue.js Quiz</title>
+  <!-- CSS:Bulma -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+</head>
+
+<body>
+  <section class="section">
+    <div id="app" class="container">
+      <div class="columns is-mobile is-centered">
+        <div class="column is-two-thirds">
+          <h1 class="title is-1 has-text-centered">Vue.js Quiz</h1>
+          <qa-template v-if="currentQuestion" :question-text="currentQuestion.text" @click-yes-btn="doAnswer($event)"
+            @click-no-btn="doAnswer($event)"></qa-template>
+          <result-template v-if="!currentQuestion" :total-score="totalScore" :questions="questions"
+            :your-answers="yourAnswers" @click="doRestart"></result-template>
+        </div>
+      </div>
+    </div>
+    <!-- 出題・解答 -->
+    <script type="text/x-template" id="qa-template">
+      <div class="box">
+        <div class="content">
+          <p class="is-size-4">Q: {{ questionText }}</p>
+          <div class="columns">
+            <div class="column">
+              <button class="button is-fullwidth is-success" @click="onClickYesBtn">
+                YES
+              </button>
+            </div>
+            <div class="column">
+              <button class="button is-fullwidth is-warning" @click="onClickNoBtn">
+                NO
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </script>
+    <!-- 結果の表示 -->
+    <script type="text/x-template" id="result-template">
+      <div class="box">
+        <div class="content has-text-centered">
+          <h2 class="title">結果発表</h2>
+          <table class="table is-bordered">
+            <tr>
+              <th v-for="(q, index) in questions">
+                Q{{ index + 1 }}
+              </th>
+            </tr>
+            <tr>
+              <td v-for="correct in corrects" :class="getCorrectClassName(correct.cd)">
+                {{ correct.value }}
+              </td>
+            </tr>
+          </table>
+          <p>
+            あなたの得点は...
+          </p>
+          <p v-if="isPerfect" class="has-text-weight-bold">
+            すごい！ 全問正解です！
+          </p>
+          <p>
+            <strong class="is-size-2 has-text-danger"> {{ totalScore }} </strong>/{{ maxPoint }}点でした
+          </p>
+          <button class="button is-fullwidth is-info has-text-weight-bold" @click="onclick">
+            最初からやり直す
+          </button>
+        </div>
+      </div>
+    </script>
+
+  </section>
+  <script src="https://unpkg.com/vue@3.0.0/dist/vue.global.js"></script>
+  <script src="./app.js"></script>
+</body>
+
+</html>

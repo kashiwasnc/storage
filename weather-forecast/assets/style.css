@@ -1,0 +1,145 @@
+@charset "UTF-8";
+
+/*----------------------------------------
+	reset
+----------------------------------------*/
+* {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 0;
+  border: 0;
+  padding: 0;
+  outline: 0;
+  vertical-align: baseline;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+/*----------------------------------------
+	main
+----------------------------------------*/
+.main {
+  display: block;
+  max-width: 768px;
+  margin: 0 auto;
+}
+
+.p-small {
+  font-size: small;
+}
+
+.alert-msg {
+  color: red;
+  font-size: small;
+}
+
+/*----------------------------------------
+	setPoint
+----------------------------------------*/
+.setPoint {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #e5ffff;
+}
+
+.setPoint-inner {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 16px;
+}
+
+.setPoint p {
+  text-align: center;
+}
+
+.point-item {
+  padding: 8px;
+}
+
+.point-item select {
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  padding: 8px 16px;
+}
+
+.geo-frame {
+  display: flex;
+  margin-top: 16px;
+}
+
+.geo-item {
+  padding: 0 8px;
+}
+
+.geo-item label {
+  color: #666;
+}
+
+.geo-item input {
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  padding: 8px 16px;
+  font-size: 16px;
+  text-align: left;
+}
+
+.btns-item {
+  margin: 24px 0;
+}
+
+/*----------------------------------------
+	button
+----------------------------------------*/
+.btn {
+  background: #82ada9;
+  display: block;
+  border-radius: 16px;
+  padding: 16px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+}
+
+.btn-action {
+  background: #1de9b6;
+  color: #000;
+  font-weight: bold;
+}
+
+.btn-disabled {
+  background: #b2dfdb;
+  color: #999;
+  cursor: not-allowed;
+}
+
+/*----------------------------------------
+	result
+----------------------------------------*/
+.result {
+  background: #fff;
+}
+
+#current {
+  padding: 16px;
+  background: #b2dfdb;
+  text-align: center;
+}
+
+/*----------------------------------------
+	chart
+----------------------------------------*/
+.chart-wrapper {
+  position: relative;
+  overflow-x: auto;
+}
+
+.chart-container {
+  display: flex;
+  align-items: center;
+}
+
+.chart-container>canvas {
+  height: 0;
+}
